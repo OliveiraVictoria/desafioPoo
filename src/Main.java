@@ -1,4 +1,6 @@
+import br.com.poo.desafio.dominio.Bootcamp;
 import br.com.poo.desafio.dominio.Curso;
+import br.com.poo.desafio.dominio.Dev;
 import br.com.poo.desafio.dominio.Mentoria;
 
 import java.time.LocalDate;
@@ -23,8 +25,44 @@ public class Main {
         mentoria.setData(LocalDate.now());
 
 
-        System.out.println(curso1);
+        /*System.out.println(curso1);
         System.out.println(curso2);
-        System.out.println(mentoria);
-        }
+        System.out.println(mentoria);*/
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Descrição Bootcamp Java Developer");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev devVictoria = new Dev();
+        devVictoria.setNome("Victoria");
+        devVictoria.inscreverBootcamp(bootcamp);
+        System.out.println("Conteudos Inscritos" + devVictoria.getConteudosInscrito());
+        devVictoria.progredir();
+        devVictoria.progredir();
+        System.out.println("-");
+        System.out.println("Conteudos Concluidos Victoria: " + devVictoria.getConteudosConcluido());
+        System.out.println("Conteudos Inscritos" + devVictoria.getConteudosInscrito());
+        System.out.println("XP" + devVictoria.calcularTotalXp());
+
+
+
+        System.out.println("---------------");
+
+
+
+        Dev devWallace = new Dev();
+        devWallace.setNome("Wallace");
+        devWallace.inscreverBootcamp(bootcamp);
+        System.out.println("Conteudos Inscritos" + devWallace.getConteudosInscrito());
+        devWallace.progredir();
+        devWallace.progredir();
+        devWallace.progredir();
+        System.out.println("-");
+        System.out.println("Conteudos Concluidos Wallace: " + devWallace.getConteudosConcluido());
+        System.out.println("Conteudos Inscritos" + devWallace.getConteudosInscrito());
+        System.out.println("XP" + devWallace.calcularTotalXp());
+    }
 }
